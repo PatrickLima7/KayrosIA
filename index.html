@@ -319,7 +319,15 @@ nav.scrolled {
 .services-head { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:72px; }
 .services-desc { font-size:16px; font-weight:300; color:var(--muted); line-height:1.9; align-self:end; }
 
-.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+/* Grid: linha 1 = featured (2 cols) + landing (1 col) | linha 2 = ecommerce + sistemas */
+.services-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:auto auto;
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+}
 .svc {
   background:var(--ink2); padding:48px 40px;
   position:relative; overflow:hidden;
@@ -359,12 +367,30 @@ nav.scrolled {
 }
 .svc-list li::before { content:''; width:4px; height:4px; background:var(--violet-bright); border-radius:50%; flex-shrink:0; }
 
+/* Featured ocupa 2 colunas na linha 1 */
 .svc-featured {
-  grid-column:span 2;
+  grid-column: span 2;
+  grid-row: 1;
   background:linear-gradient(135deg, #110828 0%, #0c061a 100%);
   padding:60px;
 }
 .svc-featured .inner { display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+
+/* Landing Pages na col 3, linha 1 */
+.svc-landing {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* E-commerce e Sistemas na linha 2, span total */
+.svc-ecommerce {
+  grid-column: 1 / span 1;
+  grid-row: 2;
+}
+.svc-sistemas {
+  grid-column: 2 / span 2;
+  grid-row: 2;
+}
 
 /* ── PROCESS ── */
 .process { padding:120px 0; }
@@ -558,7 +584,11 @@ footer {
   .why-inner { grid-template-columns:1fr; gap:60px; }
   .services-head { grid-template-columns:1fr; gap:16px; }
   .services-grid { grid-template-columns:1fr; }
-  .svc-featured { grid-column:span 1; padding:40px 32px; }
+  .svc-featured, .svc-landing, .svc-ecommerce, .svc-sistemas {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+  .svc-featured { padding:40px 32px; }
   .svc-featured .inner { grid-template-columns:1fr; gap:28px; }
   .process-steps { grid-template-columns:1fr 1fr; gap:48px; }
   .process-line { display:none; }
@@ -775,7 +805,7 @@ footer {
         </div>
       </div>
 
-      <div class="svc">
+      <div class="svc svc-landing">
         <div class="svc-glyph">🎯</div>
         <h3>Landing Pages de Alta Conversão</h3>
         <p>Páginas projetadas para transformar visitante em lead — e lead em cliente. Design premium com copy estratégica.</p>
@@ -787,7 +817,7 @@ footer {
         </ul>
       </div>
 
-      <div class="svc">
+      <div class="svc svc-ecommerce">
         <div class="svc-glyph">🛒</div>
         <h3>E-commerces &amp; Lojas Digitais</h3>
         <p>Do layout à automação de pós-venda. Lojas que vendem enquanto você dorme, com abandono de carrinho recuperado.</p>
@@ -799,7 +829,7 @@ footer {
         </ul>
       </div>
 
-      <div class="svc">
+      <div class="svc svc-sistemas">
         <div class="svc-glyph">⚙️</div>
         <h3>Sistemas &amp; Plataformas Web</h3>
         <p>Painéis de gestão, portais do cliente e sistemas internos que eliminam planilhas e centralizam sua operação.</p>
