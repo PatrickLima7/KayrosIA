@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kayros.IA — Hub de Automação & Desenvolvimento com IA</title>
   <meta name="description" content="Kayros.IA é um hub de automação e desenvolvimento. Criamos landing pages, sites, CRMs, apps, SaaS, e-commerces e automações com IA para clínicas, escritórios, empresas e muito mais.">
+  <meta name="theme-color" content="#06060f">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Kayros.IA">
+  <meta property="og:title" content="Kayros.IA — Automação com IA e desenvolvimento sob medida">
+  <meta property="og:description" content="Chatbots, CRMs, sites, apps e automações com IA para clínicas, escritórios, e-commerces e empresas. Agende um diagnóstico gratuito.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236D28D9'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='800' font-size='34' text-anchor='middle' fill='white'%3EK%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"Kayros.IA","description":"Hub de automação e desenvolvimento com IA: landing pages, sites, CRMs, aplicativos, SaaS, e-commerces e automações.","url":"https://kayros-ia.vercel.app/","telephone":"+55 37 99148-3218","areaServed":"BR","knowsAbout":["Automação com IA","Chatbots","CRM","Desenvolvimento web","E-commerce"]}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -26,8 +37,8 @@
     --brd: rgba(255,255,255,.07);
     --brdp: rgba(139,92,246,.3);
     --txt: #F0EEFF;
-    --mut: rgba(200,193,240,.55);
-    --dim: rgba(200,193,240,.28);
+    --mut: rgba(200,193,240,.68);
+    --dim: rgba(200,193,240,.5);
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -444,6 +455,76 @@
   .wa-float:hover{transform:scale(1.12);box-shadow:0 6px 28px rgba(37,211,102,.6)}
   @keyframes wapulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,.7),0 0 0 8px rgba(37,211,102,.1)}}
 
+  /* ══════════════════ FAQ ══════════════════ */
+  #faq{padding:120px 0}
+  .faq-head{text-align:center;margin-bottom:48px}
+  .faq-head .slabel{justify-content:center}.faq-head .slabel::before{display:none}
+  .faq-head .sdesc{margin:0 auto}
+  .faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+  .faq-item{border:1px solid var(--brd);border-radius:16px;background:rgba(255,255,255,.018);transition:border-color .3s,background .3s}
+  .faq-item[open]{border-color:var(--brdp);background:rgba(139,92,246,.03)}
+  .faq-item summary{
+    list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:18px 22px;font-size:.95rem;font-weight:600;cursor:pointer;
+  }
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:'+';font-size:1.3rem;font-weight:400;color:var(--pl);transition:transform .3s;flex-shrink:0}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item p{padding:0 22px 20px;font-size:.88rem;color:var(--mut);line-height:1.75}
+
+  /* ══════════════════ FORM ══════════════════ */
+  .cform{
+    max-width:640px;margin:0 auto 40px;text-align:left;
+    background:var(--sur);border:1px solid var(--brd);border-radius:22px;padding:28px;
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  }
+  @media(max-width:560px){.cform{grid-template-columns:1fr;padding:22px 18px}}
+  .cform h3{grid-column:1/-1;font-size:1rem;font-weight:700}
+  .cf-field{display:flex;flex-direction:column;gap:6px}
+  .cf-field.full{grid-column:1/-1}
+  .cf-field label{font-size:.74rem;font-weight:600;color:var(--mut);letter-spacing:.04em}
+  .cf-field input,.cf-field select,.cf-field textarea{
+    width:100%;font-family:'Poppins',sans-serif;font-size:.88rem;color:var(--txt);
+    background:rgba(255,255,255,.04);border:1px solid var(--brd);border-radius:12px;
+    padding:12px 14px;transition:border-color .2s,background .2s;
+  }
+  .cf-field select option{background:#0a0a18;color:var(--txt)}
+  .cf-field textarea{resize:vertical;min-height:90px}
+  .cf-field input:focus,.cf-field select:focus,.cf-field textarea:focus{outline:none;border-color:var(--p);background:rgba(139,92,246,.06)}
+  .cf-submit{grid-column:1/-1;justify-content:center;width:100%}
+  .cf-submit[disabled]{opacity:.6;pointer-events:none}
+  .cf-msg{grid-column:1/-1;font-size:.82rem;min-height:1.2em;text-align:center;color:var(--pl)}
+  .cf-msg.err{color:#fca5a5}
+  .cf-or{font-size:.8rem;color:var(--dim);margin-bottom:18px}
+  .cf-hp{position:absolute;left:-9999px;opacity:0;pointer-events:none}
+
+  /* ══════════════════ A11Y ══════════════════ */
+  :focus-visible{outline:2px solid var(--pl);outline-offset:3px}
+  .skip{position:absolute;left:-9999px;top:8px;z-index:100000;background:var(--p);color:#fff;padding:10px 16px;border-radius:10px;font-size:.85rem;font-weight:600;text-decoration:none}
+  .skip:focus{left:12px}
+  /* mobile menu */
+  #mmenu{
+    display:none;position:fixed;top:78px;left:50%;transform:translateX(-50%);
+    z-index:999;width:96%;max-width:960px;
+    background:rgba(6,6,15,.96);backdrop-filter:blur(22px);
+    border:1px solid var(--brd);border-radius:18px;padding:10px;
+    flex-direction:column;gap:2px;
+  }
+  #mmenu.open{display:flex}
+  #mmenu button{
+    background:none;border:none;text-align:left;cursor:pointer;
+    font-family:'Poppins',sans-serif;font-size:.9rem;font-weight:500;color:var(--txt);
+    padding:14px 16px;border-radius:12px;
+  }
+  #mmenu button:hover{background:rgba(139,92,246,.1)}
+  @media(min-width:641px){#mmenu{display:none!important}}
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    html{scroll-behavior:auto}
+    .hbadge,.htag,.htitle,.htitle-sub,.hkairos-meaning,.hactions,.hstats{opacity:1}
+    .reveal,.reveal2{opacity:1;transform:none}
+  }
+
   /* ══════════════════ FOOTER ══════════════════ */
   footer{background:var(--bg);border-top:1px solid var(--brd);padding:64px 0 32px;position:relative}
   footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.45),transparent)}
@@ -613,6 +694,7 @@
 </head>
 <body>
 
+<a class="skip" href="#inicio">Ir para o conteúdo</a>
 <div id="cur"></div>
 <div id="cur-ring"></div>
 <div id="pgbar"></div>
@@ -626,33 +708,41 @@
       <li><button onclick="go('servicos')">Serviços</button></li>
       <li><button onclick="go('automacoes')">Automações</button></li>
       <li><button onclick="go('setores')">Setores</button></li>
+      <li><button onclick="go('faq')">Dúvidas</button></li>
       <li><button onclick="go('contato')">Contato</button></li>
     </ul>
-    <button class="ncta" onclick="wa()">
-      <span>Falar agora</span>
+    <button class="ncta" onclick="go('contato')" aria-label="Agendar diagnóstico gratuito">
+      <span>Diagnóstico grátis</span>
       <span class="ncta-icon">→</span>
     </button>
-    <button class="hamburger" onclick="wa()">
+    <button class="hamburger" id="hamb" aria-label="Abrir menu" aria-expanded="false" aria-controls="mmenu">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
 </header>
+<nav id="mmenu" aria-label="Menu principal">
+  <button onclick="go('inicio')">Início</button>
+  <button onclick="go('servicos')">Serviços</button>
+  <button onclick="go('automacoes')">Automações</button>
+  <button onclick="go('setores')">Setores</button>
+  <button onclick="go('faq')">Dúvidas</button>
+  <button onclick="go('contato')">Contato</button>
+</nav>
 
 <!-- ══ HERO ══ -->
 <section id="inicio">
-  <canvas id="pcanvas"></canvas>
+  <canvas id="pcanvas" aria-hidden="true"></canvas>
   <div class="hglow"></div>
   <div class="hcontent">
     <div class="hbadge"><span class="bdot"></span>Hub de Automação &amp; Desenvolvimento com IA</div>
-    <div class="htag">O momento certo é agora — este é o significado de Káiros</div>
     <h1 class="htitle">
-      Transformamos negócios com<br><span class="ig" id="typed-word">Automação com IA</span>
+      Mais vendas e menos trabalho manual com<br><span class="ig" id="typed-word">Automação com IA</span>
     </h1>
-    <p class="htitle-sub">Sites, sistemas, apps e automações inteligentes<br>para empresas que não podem esperar.</p>
-    <p class="hkairos-meaning">Káiros (καιρός) — o momento oportuno, a hora certa para agir. A sua hora é agora.</p>
+    <p class="htitle-sub">Chatbots, CRMs, sites e sistemas sob medida para clínicas, escritórios,<br>e-commerces e empresas que querem atender e vender mais.</p>
+    <p class="hkairos-meaning">Káiros (καιρός): o momento oportuno, a hora certa para agir. A sua é agora.</p>
     <div class="hactions">
       <button class="btnp" onclick="go('contato')">
-        <span>Começar agora</span>
+        <span>Agendar diagnóstico gratuito</span>
         <span class="bicon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg></span>
       </button>
       <button class="btng" onclick="go('servicos')">
@@ -661,10 +751,10 @@
       </button>
     </div>
     <div class="hstats">
-      <div class="hstat"><span class="hstat-n" data-target="50">0</span><span class="hstat-l">Projetos entregues</span></div>
-      <div class="hstat"><span class="hstat-n" data-target="98">0</span><span class="hstat-l">% satisfação</span></div>
-      <div class="hstat"><span class="hstat-n" data-target="12">0</span><span class="hstat-l">Ferramentas de IA</span></div>
-      <div class="hstat"><span class="hstat-n" data-target="24">0</span><span class="hstat-l">Horas de suporte</span></div>
+      <div class="hstat"><span class="hstat-n" data-target="7">7</span><span class="hstat-l">Soluções digitais</span></div>
+      <div class="hstat"><span class="hstat-n" data-target="5">5</span><span class="hstat-l">Setores atendidos</span></div>
+      <div class="hstat"><span class="hstat-n">24/7</span><span class="hstat-l">Atendimento automatizado</span></div>
+      <div class="hstat"><span class="hstat-n">Grátis</span><span class="hstat-l">Diagnóstico estratégico</span></div>
     </div>
   </div>
 </section>
@@ -673,30 +763,32 @@
 <section id="parceiros">
   <div class="container reveal">
     <div class="phead">
-      <h2>Empresas que confiam na <span class="ig">Kayros.IA</span></h2>
-      <p>Trabalhamos lado a lado com clínicas, escritórios, e-commerces e empresas que querem crescer com inteligência artificial.</p>
+      <h2>Feito para o <span class="ig">seu tipo de negócio</span></h2>
+      <p>Soluções pensadas para clínicas, escritórios, e-commerces, financeiras e empresas que querem crescer com inteligência artificial.</p>
     </div>
   </div>
-  <div class="track">
+  <div class="track" aria-hidden="true">
     <div class="inner">
-      <span class="plogo">Clínica Viva</span>
-      <span class="plogo">Atlas Escritório</span>
-      <span class="plogo">NovaTech</span>
-      <span class="plogo">Prime Commerce</span>
-      <span class="plogo">Ômega Finanças</span>
-      <span class="plogo">Vertex Saúde</span>
-      <span class="plogo">Solaris Legal</span>
-      <span class="plogo">Quanta Labs</span>
-      <span class="plogo">Nexo Digital</span>
-      <span class="plogo">Clínica Viva</span>
-      <span class="plogo">Atlas Escritório</span>
-      <span class="plogo">NovaTech</span>
-      <span class="plogo">Prime Commerce</span>
-      <span class="plogo">Ômega Finanças</span>
-      <span class="plogo">Vertex Saúde</span>
-      <span class="plogo">Solaris Legal</span>
-      <span class="plogo">Quanta Labs</span>
-      <span class="plogo">Nexo Digital</span>
+      <span class="plogo">Clínicas &amp; Saúde</span>
+      <span class="plogo">Escritórios &amp; Jurídico</span>
+      <span class="plogo">E-commerces</span>
+      <span class="plogo">Financeiras &amp; Seguros</span>
+      <span class="plogo">Empresas &amp; Indústria</span>
+      <span class="plogo">Clínicas &amp; Saúde</span>
+      <span class="plogo">Escritórios &amp; Jurídico</span>
+      <span class="plogo">E-commerces</span>
+      <span class="plogo">Financeiras &amp; Seguros</span>
+      <span class="plogo">Empresas &amp; Indústria</span>
+      <span class="plogo">Clínicas &amp; Saúde</span>
+      <span class="plogo">Escritórios &amp; Jurídico</span>
+      <span class="plogo">E-commerces</span>
+      <span class="plogo">Financeiras &amp; Seguros</span>
+      <span class="plogo">Empresas &amp; Indústria</span>
+      <span class="plogo">Clínicas &amp; Saúde</span>
+      <span class="plogo">Escritórios &amp; Jurídico</span>
+      <span class="plogo">E-commerces</span>
+      <span class="plogo">Financeiras &amp; Seguros</span>
+      <span class="plogo">Empresas &amp; Indústria</span>
     </div>
   </div>
 </section>
@@ -862,17 +954,17 @@
               <ul class="si-alist">
                 <li>Chatbot para agendamento e confirmação automática via WhatsApp</li>
                 <li>Lembretes de consulta e pós-atendimento automatizados</li>
-                <li>Triagem inteligente de sintomas com IA</li>
+                <li>Pré-atendimento de dúvidas com encaminhamento à equipe humana</li>
                 <li>Integração com sistemas de prontuário e agenda</li>
               </ul>
             </div>
-            <div class="si-res"><strong>Resultado: </strong>Clínica reduziu em 70% as faltas com confirmações automáticas e recuperou 30% dos pacientes inativos com fluxo de reativação via IA.</div>
+            <div class="si-res"><strong>Onde o ganho aparece: </strong>menos faltas com confirmações automáticas e mais retornos com fluxos de reativação de pacientes inativos.</div>
           </div></div>
         </div>
         <!-- Escritórios -->
         <div class="si" id="si-escritorios">
           <button class="si-trigger" onclick="tog('escritorios')">
-            <div class="si-left"><span>Escritórios &amp; Jurídico</span><span class="si-tag">Produtividade ×3</span></div>
+            <div class="si-left"><span>Escritórios &amp; Jurídico</span><span class="si-tag">Mais produtividade</span></div>
             <span class="si-arr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span>
           </button>
           <div class="si-panel"><div class="si-inner">
@@ -881,13 +973,13 @@
               <p>Tarefas repetitivas consomem horas do seu time. IA automatiza documentos, triagem de clientes e follow-up, liberando sua equipe para o trabalho de valor.</p>
               <p class="si-alabel">O que entregamos:</p>
               <ul class="si-alist">
-                <li>Geração automatizada de contratos e petições com IA</li>
+                <li>Geração de minutas de documentos com IA, para revisão da equipe</li>
                 <li>Qualificação e triagem de leads jurídicos</li>
                 <li>Atendimento inicial e captura de dados via chatbot</li>
                 <li>Dashboard de gestão de casos e prazos</li>
               </ul>
             </div>
-            <div class="si-res"><strong>Resultado: </strong>Escritório de advocacia reduziu 60% do tempo em tarefas administrativas e triplicou a capacidade de atendimento sem aumentar equipe.</div>
+            <div class="si-res"><strong>Onde o ganho aparece: </strong>menos tempo em tarefas administrativas e mais capacidade de atendimento sem precisar ampliar a equipe.</div>
           </div></div>
         </div>
         <!-- E-commerce -->
@@ -908,7 +1000,7 @@
                 <li>Alertas inteligentes de estoque e reposição automática</li>
               </ul>
             </div>
-            <div class="si-res"><strong>Resultado: </strong>Loja virtual recuperou 22% dos carrinhos abandonados com fluxo automático de WhatsApp e aumentou ticket médio em 18% com recomendações de IA.</div>
+            <div class="si-res"><strong>Onde o ganho aparece: </strong>mais carrinhos recuperados com fluxos automáticos de WhatsApp e ticket médio maior com recomendações personalizadas.</div>
           </div></div>
         </div>
         <!-- Financeiras -->
@@ -929,7 +1021,7 @@
                 <li>Relatórios de risco e compliance automatizados</li>
               </ul>
             </div>
-            <div class="si-res"><strong>Resultado: </strong>Financeira reduziu inadimplência em 35% com fluxo automático de cobrança e aumentou captação em 40% com qualificação por IA.</div>
+            <div class="si-res"><strong>Onde o ganho aparece: </strong>menor inadimplência com cobrança e negociação automatizadas e mais captação com qualificação de leads por IA.</div>
           </div></div>
         </div>
         <!-- Empresas -->
@@ -950,7 +1042,7 @@
                 <li>Integração de sistemas legados com APIs modernas</li>
               </ul>
             </div>
-            <div class="si-res"><strong>Resultado: </strong>Empresa de médio porte eliminou 80% das tarefas manuais em RH e financeiro, economizando mais de 200 horas/mês com automações personalizadas.</div>
+            <div class="si-res"><strong>Onde o ganho aparece: </strong>menos tarefas manuais em RH, financeiro e vendas, com horas devolvidas ao time todos os meses.</div>
           </div></div>
         </div>
       </div>
@@ -991,6 +1083,43 @@
   </div>
 </section>
 
+<!-- ══ FAQ ══ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-head reveal">
+      <div class="slabel">Perguntas frequentes</div>
+      <h2 class="stitle">Dúvidas <span class="ig">comuns</span></h2>
+      <p class="sdesc">O essencial antes de conversar com a gente.</p>
+    </div>
+    <div class="faq-list reveal2">
+      <details class="faq-item">
+        <summary>Quanto custa um projeto?</summary>
+        <p>Depende do escopo: uma automação pontual é bem diferente de um CRM ou de uma plataforma SaaS. No diagnóstico gratuito você já recebe uma estimativa de investimento, sem compromisso.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Em quanto tempo fica pronto?</summary>
+        <p>O prazo varia conforme a complexidade. Automações e landing pages costumam ser mais rápidas; sistemas e aplicativos levam mais tempo. O cronograma é combinado na etapa de estratégia, antes de qualquer execução.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Preciso entender de tecnologia?</summary>
+        <p>Não. Você explica como sua operação funciona hoje e nós traduzimos isso em solução. Também acompanhamos a implantação para que sua equipe saiba usar.</p>
+      </details>
+      <details class="faq-item">
+        <summary>A automação funciona com os sistemas que já uso?</summary>
+        <p>Na maioria dos casos sim. Integramos WhatsApp, CRM, e-mail, planilhas, ERPs e sistemas legados via APIs. No diagnóstico avaliamos o que você já tem e o que faz sentido conectar.</p>
+      </details>
+      <details class="faq-item">
+        <summary>E os dados dos meus clientes?</summary>
+        <p>A LGPD é considerada desde o desenho da solução: acessamos apenas os dados necessários para o fluxo funcionar e definimos com você quem pode ver o quê. Para setores como saúde, jurídico e financeiro, validamos o fluxo com as regras da sua área.</p>
+      </details>
+      <details class="faq-item">
+        <summary>O atendimento é feito só por robô?</summary>
+        <p>Não. O chatbot resolve o repetitivo e encaminha o que for mais sensível para a sua equipe. Aqui na Kayros.IA, o diagnóstico é feito com um especialista real.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ══ CONTATO ══ -->
 <section id="contato">
   <div class="container">
@@ -1022,6 +1151,41 @@
           <p>Fale com um especialista real — sem bots, sem enrolação.</p>
         </div>
       </div>
+      <form class="cform reveal" id="cform" novalidate>
+        <h3>Conte sobre o seu negócio</h3>
+        <div class="cf-field">
+          <label for="cf-nome">Nome</label>
+          <input id="cf-nome" name="nome" type="text" autocomplete="name" required>
+        </div>
+        <div class="cf-field">
+          <label for="cf-tel">WhatsApp</label>
+          <input id="cf-tel" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000" required>
+        </div>
+        <div class="cf-field">
+          <label for="cf-email">E-mail (opcional)</label>
+          <input id="cf-email" name="email" type="email" autocomplete="email">
+        </div>
+        <div class="cf-field">
+          <label for="cf-setor">Seu segmento</label>
+          <select id="cf-setor" name="segmento" required>
+            <option value="">Selecione</option>
+            <option>Clínicas &amp; Saúde</option>
+            <option>Escritórios &amp; Jurídico</option>
+            <option>E-commerce</option>
+            <option>Financeiras &amp; Seguros</option>
+            <option>Empresa / Indústria</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="cf-field full">
+          <label for="cf-msg">O que você quer resolver ou criar? (opcional)</label>
+          <textarea id="cf-msg" name="mensagem" placeholder="Ex.: automatizar agendamentos, criar um CRM, lançar uma loja virtual…"></textarea>
+        </div>
+        <div class="cf-hp" aria-hidden="true"><label>Não preencha <input type="text" name="site" tabindex="-1" autocomplete="off"></label></div>
+        <button class="cta-big cf-submit" type="submit"><span>Quero meu diagnóstico gratuito</span></button>
+        <p class="cf-msg" id="cf-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="cf-or">ou, se preferir, fale agora com a gente:</p>
       <div class="reveal">
         <button class="cta-big" onclick="wa()">
           <span>Falar com especialista no WhatsApp</span>
@@ -1061,23 +1225,20 @@
       <div class="fcol">
         <h3>Contato</h3>
         <a href="tel:+5537991483218">(37) 99148-3218</a>
-        <a href="https://wa.me/5537991483218" target="_blank">WhatsApp</a>
+        <a href="https://wa.me/5537991483218" target="_blank" rel="noopener">WhatsApp</a>
         <a href="mailto:contato@kayros.ia">contato@kayros.ia</a>
-        <h3 style="margin-top:20px">Social</h3>
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">LinkedIn</a>
       </div>
     </div>
-    <div class="fbot">© 2025 Kayros.IA. Todos os direitos reservados. · O momento certo é agora.</div>
+    <div class="fbot">© <span id="yr">2026</span> Kayros.IA. Todos os direitos reservados. · O momento certo é agora.</div>
   </div>
 </footer>
 
 <!-- WhatsApp FAB -->
-<button class="wa-float" onclick="wa()" title="Falar no WhatsApp">
+<button class="wa-float" onclick="wa()" title="Falar no WhatsApp" aria-label="Falar no WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
 </button>
 
-<button id="stop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+<button id="stop" aria-label="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
 </button>
 
@@ -1109,13 +1270,79 @@
     stbtn.classList.toggle('vis',window.scrollY>400);
   });
 
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   /* ── Accordion */
+  document.querySelectorAll('.si-trigger').forEach(b=>b.setAttribute('aria-expanded','false'));
   function tog(key){
     const el=document.getElementById('si-'+key);
     const isOpen=el.classList.contains('open');
-    document.querySelectorAll('.si').forEach(i=>i.classList.remove('open'));
-    if(!isOpen) el.classList.add('open');
+    document.querySelectorAll('.si').forEach(i=>{
+      i.classList.remove('open');
+      i.querySelector('.si-trigger').setAttribute('aria-expanded','false');
+    });
+    if(!isOpen){
+      el.classList.add('open');
+      el.querySelector('.si-trigger').setAttribute('aria-expanded','true');
+    }
   }
+
+  /* ── Mobile menu */
+  const hamb=document.getElementById('hamb'), mmenu=document.getElementById('mmenu');
+  function closeMenu(){mmenu.classList.remove('open');hamb.setAttribute('aria-expanded','false')}
+  hamb.addEventListener('click',()=>{
+    const open=mmenu.classList.toggle('open');
+    hamb.setAttribute('aria-expanded',String(open));
+  });
+  mmenu.querySelectorAll('button').forEach(b=>b.addEventListener('click',closeMenu));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+
+  /* ── Year */
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  /* ── Contact form */
+  // Para receber os leads no n8n (ou outro webhook), cole a URL aqui.
+  // Vazio = abre o WhatsApp com a mensagem já preenchida.
+  const FORM_ENDPOINT = '';
+  const cform=document.getElementById('cform');
+  const cfStatus=document.getElementById('cf-status');
+  cform.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const f=new FormData(cform);
+    if(f.get('site')) return; // honeypot
+    const nome=(f.get('nome')||'').trim(), tel=(f.get('whatsapp')||'').trim();
+    const email=(f.get('email')||'').trim(), seg=f.get('segmento')||'', msg=(f.get('mensagem')||'').trim();
+    cfStatus.classList.remove('err');
+    if(nome.length<2 || tel.replace(/\D/g,'').length<10 || !seg){
+      cfStatus.classList.add('err');
+      cfStatus.textContent='Preencha nome, WhatsApp (com DDD) e segmento.';
+      return;
+    }
+    if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      cfStatus.classList.add('err');
+      cfStatus.textContent='Confira o e-mail informado.';
+      return;
+    }
+    const btn=cform.querySelector('.cf-submit');
+    if(FORM_ENDPOINT){
+      btn.disabled=true; cfStatus.textContent='Enviando…';
+      try{
+        const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({nome,whatsapp:tel,email,segmento:seg,mensagem:msg,origem:'site-kayros',data:new Date().toISOString()})});
+        if(!r.ok) throw new Error(r.status);
+        cform.reset();
+        cfStatus.textContent='Recebemos seu pedido! Entraremos em contato pelo WhatsApp em breve.';
+      }catch(err){
+        cfStatus.classList.add('err');
+        cfStatus.textContent='Não foi possível enviar agora. Tente pelo botão de WhatsApp abaixo.';
+      }
+      btn.disabled=false;
+    } else {
+      const txt=`Olá! Vim pelo site da Kayros.IA e quero meu diagnóstico gratuito.\n\nNome: ${nome}\nWhatsApp: ${tel}\nSegmento: ${seg}`+(email?`\nE-mail: ${email}`:'')+(msg?`\nObjetivo: ${msg}`:'');
+      window.open('https://wa.me/5537991483218?text='+encodeURIComponent(txt),'_blank','noopener');
+      cfStatus.textContent='Abrindo o WhatsApp com a sua mensagem…';
+    }
+  });
 
   /* ── Reveal */
   const obs=new IntersectionObserver(entries=>{
@@ -1124,7 +1351,7 @@
   document.querySelectorAll('.reveal,.reveal2').forEach(el=>obs.observe(el));
 
   /* ── Typed headline */
-  const words=['Automação com IA','Landing Pages','Chatbots','Aplicativos','Sites Profissionais','E-commerces','CRM Sob Medida'];
+  const words=['Automação com IA','Chatbots no WhatsApp','CRM sob medida','Sites que convertem','Aplicativos','E-commerces'];
   let wi=0,ci=0,deleting=false;
   const el=document.getElementById('typed-word');
   function type(){
@@ -1134,13 +1361,14 @@
     if(deleting&&ci<0){deleting=false;wi=(wi+1)%words.length;ci=0;setTimeout(type,400);return}
     setTimeout(type,deleting?45:80);
   }
-  setTimeout(type,2000);
+  if(!REDUCED) setTimeout(type,2000);
 
   /* ── Counter animation */
   function animateCounter(el){
     const target=parseInt(el.dataset.target);
-    let cur=0;const step=Math.ceil(target/60);
-    const t=setInterval(()=>{cur=Math.min(cur+step,target);el.textContent=cur+(el.parentElement.querySelector('.hstat-l').textContent.includes('%')?'':'+ ');if(cur>=target){el.textContent=target+(el.parentElement.querySelector('.hstat-l').textContent.includes('%')?'%':'+');clearInterval(t)}},30);
+    if(REDUCED){el.textContent=target;return}
+    let n=0;const step=Math.max(1,Math.ceil(target/20));
+    const t=setInterval(()=>{n=Math.min(n+step,target);el.textContent=n;if(n>=target)clearInterval(t)},60);
   }
   const statsObs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
@@ -1182,9 +1410,15 @@
         const d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);
         if(d<90){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(139,92,246,${.15*(1-d/90)})`;ctx.lineWidth=.5;ctx.stroke()}
       }
-      requestAnimationFrame(frame);
+      if(heroVisible) requestAnimationFrame(frame); else running=false;
     };
-    frame();
+    let heroVisible=true, running=false;
+    const start=()=>{ if(!running){running=true;frame()} };
+    if(REDUCED){ frame(); heroVisible=false; }
+    else {
+      new IntersectionObserver(es=>{ heroVisible=es[0].isIntersecting; if(heroVisible) start(); }).observe(canvas);
+      start();
+    }
   })();
 </script>
 </body>
