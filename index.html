@@ -355,22 +355,23 @@
   .set-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
   @media(max-width:860px){.set-wrap{grid-template-columns:1fr;gap:32px}}
   .set-sticky{position:sticky;top:96px}
+  @media(max-width:860px){.set-sticky{position:static}}
   .set-sticky p{font-size:.93rem;color:var(--mut);line-height:1.8;margin-top:18px}
   .set-list{display:flex;flex-direction:column;gap:10px}
   .si{border:1px solid var(--brd);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.018);transition:border-color .3s}
   .si:hover{border-color:rgba(139,92,246,.2)}
   .si.open{border-color:var(--brdp);background:rgba(139,92,246,.03)}
   .si-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:none;border:none;cursor:none;color:var(--txt);gap:16px}
-  .si-left{display:flex;align-items:center;gap:14px}
+  .si-left{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;min-width:0}
   .si-left>span:first-child{font-size:1.1rem;font-weight:600;text-align:left}
   .si-tag{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pl);background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2);border-radius:50px;padding:3px 10px;white-space:nowrap}
   @media(max-width:480px){.si-tag{display:none}}
   .si-arr{width:30px;height:30px;flex-shrink:0;border:1px solid var(--brdp);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--pl);transition:transform .3s,background .3s}
   .si.open .si-arr{transform:rotate(180deg);background:rgba(139,92,246,.15)}
   .si-panel{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease,opacity .35s ease}
-  .si.open .si-panel{max-height:600px;opacity:1}
-  .si-inner{padding:0 22px 26px;display:grid;grid-template-columns:1.5fr 1fr;gap:18px}
-  @media(max-width:560px){.si-inner{grid-template-columns:1fr}}
+  .si.open .si-panel{max-height:1200px;opacity:1}
+  .si-inner{padding:0 22px 26px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px}
+  @media(max-width:1000px){.si-inner{grid-template-columns:1fr}}
   .si-body h3{font-size:1rem;font-weight:600;margin-bottom:10px}
   .si-body p{font-size:.85rem;color:var(--mut);line-height:1.75;margin-bottom:14px}
   .si-alabel{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pl);margin-bottom:9px}
