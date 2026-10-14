@@ -526,6 +526,88 @@
     .reveal,.reveal2{opacity:1;transform:none}
   }
 
+  /* ══════════════════ MOTION ══════════════════ */
+  :root{interpolate-size:allow-keywords}
+
+  /* entrada escalonada dos filhos */
+  .stagger>*{opacity:0}
+  .stagger.vis>*{opacity:1;animation:fup .75s calc(var(--i,0)*90ms) cubic-bezier(.2,.7,.2,1) backwards}
+
+  /* brilho correndo no texto em destaque */
+  .ig{
+    background-image:linear-gradient(120deg,var(--pl) 0%,var(--acc) 30%,#fff 50%,var(--acc) 70%,var(--pl) 100%);
+    background-size:200% auto;animation:shine 7s linear infinite;
+  }
+  @keyframes shine{from{background-position:0% center}to{background-position:200% center}}
+
+  /* blobs flutuantes no hero */
+  .hblob{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;will-change:transform}
+  .hblob.b1{width:340px;height:340px;background:rgba(139,92,246,.22);top:10%;left:6%;animation:drift1 16s ease-in-out infinite alternate}
+  .hblob.b2{width:300px;height:300px;background:rgba(196,181,253,.12);bottom:6%;right:5%;animation:drift2 20s ease-in-out infinite alternate}
+  @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(60px,40px) scale(1.15)}}
+  @keyframes drift2{from{transform:translate(0,0) scale(1)}to{transform:translate(-50px,-30px) scale(1.1)}}
+  @media(max-width:480px){.hblob.b1{width:200px;height:200px}.hblob.b2{width:180px;height:180px}}
+
+  /* brilho que atravessa os botões */
+  .btnp,.cta-big,.ncta{position:relative;overflow:hidden}
+  .btnp::after,.cta-big::after,.ncta::after{
+    content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);
+    transform:skewX(-20deg);transition:left .7s ease;pointer-events:none;
+  }
+  .btnp:hover::after,.cta-big:hover::after,.ncta:hover::after{left:130%}
+
+  /* destaque que segue o mouse + ícone que reage */
+  .dc{position:relative;overflow:hidden}
+  .scard::after,.dc::after{
+    content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    opacity:0;transition:opacity .3s;
+    background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.16),transparent 70%);
+  }
+  .scard:hover::after,.dc:hover::after{opacity:1}
+  .scard-icon,.dc-icon{transition:box-shadow .3s,transform .4s cubic-bezier(.3,1.6,.5,1)}
+  .scard:hover .scard-icon,.dc:hover .dc-icon{transform:translateY(-3px) rotate(-6deg) scale(1.06)}
+
+  /* linha dos rótulos de seção cresce ao aparecer */
+  .reveal .slabel::before,.reveal2 .slabel::before{width:0;transition:width .8s .35s ease}
+  .reveal.vis .slabel::before,.reveal2.vis .slabel::before{width:22px}
+
+  /* processo: linha se desenha e números pulsam */
+  .proc-steps::before{transform:scaleX(0);transform-origin:left center;transition:transform 1.4s .4s cubic-bezier(.2,.7,.2,1)}
+  .proc-steps.vis::before{transform:scaleX(1)}
+  .pstep-num{position:relative}
+  .pstep-num::after{
+    content:'';position:absolute;inset:0;border-radius:50%;
+    border:1px solid var(--p);opacity:0;animation:ping 3.2s ease-out infinite;
+  }
+  .pstep:nth-child(2) .pstep-num::after{animation-delay:.8s}
+  .pstep:nth-child(3) .pstep-num::after{animation-delay:1.6s}
+  .pstep:nth-child(4) .pstep-num::after{animation-delay:2.4s}
+  @keyframes ping{0%{transform:scale(1);opacity:.55}70%,100%{transform:scale(1.7);opacity:0}}
+
+  /* faixa de setores pausa no hover */
+  .track:hover .inner{animation-play-state:paused}
+
+  /* navbar reage ao rolar + link da seção ativa */
+  #nav.scrolled{background:rgba(6,6,15,.94);border-color:rgba(139,92,246,.2);box-shadow:0 10px 40px rgba(0,0,0,.45)}
+  .nlinks button{position:relative;padding:4px 0}
+  .nlinks button::after{
+    content:'';position:absolute;left:0;bottom:-2px;height:1px;width:100%;
+    background:var(--p);transform:scaleX(0);transform-origin:left;transition:transform .3s;
+  }
+  .nlinks button:hover::after,.nlinks button.act::after{transform:scaleX(1)}
+  .nlinks button.act{color:var(--txt)}
+
+  /* FAQ abre com transição suave (navegadores que suportam) */
+  .faq-item::details-content{block-size:0;overflow:hidden;transition:block-size .4s ease,content-visibility .4s allow-discrete}
+  .faq-item[open]::details-content{block-size:auto}
+
+  @media(prefers-reduced-motion:reduce){
+    .stagger>*{opacity:1}
+    .proc-steps::before{transform:none}
+    .hblob{display:none}
+  }
+
   /* ══════════════════ FOOTER ══════════════════ */
   footer{background:var(--bg);border-top:1px solid var(--brd);padding:64px 0 32px;position:relative}
   footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.45),transparent)}
@@ -734,6 +816,8 @@
 <section id="inicio">
   <canvas id="pcanvas" aria-hidden="true"></canvas>
   <div class="hglow"></div>
+  <div class="hblob b1" aria-hidden="true"></div>
+  <div class="hblob b2" aria-hidden="true"></div>
   <div class="hcontent">
     <div class="hbadge"><span class="bdot"></span>Hub de Automação &amp; Desenvolvimento com IA</div>
     <h1 class="htitle">
@@ -802,7 +886,7 @@
       <h2 class="stitle">Desenvolvimento que <span class="ig">converte</span></h2>
       <p class="sdesc">Do primeiro clique à venda finalizada, criamos cada produto com foco em resultado e experiência.</p>
     </div>
-    <div class="srv-grid reveal2">
+    <div class="srv-grid reveal2 stagger">
       <!-- Landing Page -->
       <div class="scard">
         <div class="scard-icon">
@@ -837,7 +921,7 @@
       </div>
     </div>
     <!-- Segunda linha: 3 cards -->
-    <div class="srv-grid2 reveal2" style="margin-top:18px">
+    <div class="srv-grid2 reveal2 stagger" style="margin-top:18px">
       <!-- SaaS -->
       <div class="scard">
         <div class="scard-icon">
@@ -896,7 +980,7 @@
         <div class="slabel">Automação com IA</div>
         <h2 class="stitle">Inteligência Artificial aplicada ao seu negócio</h2>
         <p class="sdesc">Utilizamos as melhores ferramentas de IA disponíveis — ChatGPT, Gemini, Claude, N8N e muito mais — para criar automações que eliminam trabalho repetitivo, aceleram atendimento e geram resultados reais.</p>
-        <div class="auto-list">
+        <div class="auto-list stagger">
           <div class="auto-item">
             <div class="auto-dot"></div>
             <div class="auto-item-text">
@@ -940,7 +1024,7 @@
         <h2 class="stitle">Soluções para quem <span class="ig">realmente precisa</span></h2>
         <p>Não atendemos a todos da mesma forma. Cada setor tem suas dores específicas — e a Kayros.IA entrega soluções feitas para o seu contexto.</p>
       </div>
-      <div class="set-list reveal2">
+      <div class="set-list reveal2 stagger">
         <!-- Clínicas -->
         <div class="si" id="si-clinicas">
           <button class="si-trigger" onclick="tog('clinicas')">
@@ -1059,7 +1143,7 @@
       <h2 class="stitle">Do diagnóstico à <span class="ig">entrega em produção</span></h2>
       <p class="sdesc">Um processo claro, transparente e focado em resultados mensuráveis para o seu negócio.</p>
     </div>
-    <div class="proc-steps reveal2">
+    <div class="proc-steps reveal2 stagger">
       <div class="pstep">
         <div class="pstep-num">1</div>
         <h3>Diagnóstico</h3>
@@ -1092,7 +1176,7 @@
       <h2 class="stitle">Dúvidas <span class="ig">comuns</span></h2>
       <p class="sdesc">O essencial antes de conversar com a gente.</p>
     </div>
-    <div class="faq-list reveal2">
+    <div class="faq-list reveal2 stagger">
       <details class="faq-item">
         <summary>Quanto custa um projeto?</summary>
         <p>Depende do escopo: uma automação pontual é bem diferente de um CRM ou de uma plataforma SaaS. No diagnóstico gratuito você já recebe uma estimativa de investimento, sem compromisso.</p>
@@ -1130,7 +1214,7 @@
         <p class="cta-hl">Agende seu Diagnóstico Estratégico gratuito</p>
         <p class="cta-desc">Com a Kayros.IA, você descobre em uma sessão onde a IA pode transformar sua empresa — e já sai com um plano de ação claro nas mãos.</p>
       </div>
-      <div class="diag-cards reveal2">
+      <div class="diag-cards reveal2 stagger">
         <div class="dc">
           <div class="dc-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
           <h3>Mapeamento de processos</h3>
@@ -1269,6 +1353,7 @@
     const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
     pgbar.style.width=pct+'%';
     stbtn.classList.toggle('vis',window.scrollY>400);
+    document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);
   });
 
   const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1349,7 +1434,29 @@
   const obs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis')}});
   },{threshold:.1});
-  document.querySelectorAll('.reveal,.reveal2').forEach(el=>obs.observe(el));
+  document.querySelectorAll('.stagger').forEach(c=>[...c.children].forEach((ch,i)=>ch.style.setProperty('--i',i)));
+  document.querySelectorAll('.reveal,.reveal2,.stagger').forEach(el=>obs.observe(el));
+
+  /* ── Destaque que segue o mouse nos cards */
+  document.querySelectorAll('.scard,.dc').forEach(c=>c.addEventListener('pointermove',e=>{
+    const r=c.getBoundingClientRect();
+    c.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    c.style.setProperty('--my',(e.clientY-r.top)+'px');
+  }));
+
+  /* ── Link ativo no menu conforme a seção visível */
+  const navBtns=[...document.querySelectorAll('.nlinks button')];
+  const navById={};
+  navBtns.forEach(b=>{const m=(b.getAttribute('onclick')||'').match(/go\('(\w+)'\)/);if(m) navById[m[1]]=b});
+  const secObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        navBtns.forEach(b=>b.classList.remove('act'));
+        if(navById[e.target.id]) navById[e.target.id].classList.add('act');
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(navById).forEach(id=>{const s=document.getElementById(id);if(s) secObs.observe(s)});
 
   /* ── Typed headline */
   const words=['Automação com IA','Chatbots no WhatsApp','CRM sob medida','Sites que convertem','Aplicativos','E-commerces'];
